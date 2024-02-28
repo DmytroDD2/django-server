@@ -8,4 +8,5 @@ from .serializer import MyModelSerializer
 
 
 class MyModelItemViewSet(viewsets.ModelViewSet):
+    queryset = MyModel.objects.all()
     serializer_class = MyModelSerializer

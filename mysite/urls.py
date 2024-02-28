@@ -14,11 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include
 from drf_spectacular.views import SpectacularSwaggerView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("my-model/", include("my_model.urls")),
-    path('', SpectacularSwaggerView.as_view(url_name='schema'), name='docs'),
+    # path('', SpectacularSwaggerView.as_view(url_name='schema'), name='docs'),
 ]
+urlpatterns += staticfiles_urlpatterns()

@@ -1,9 +1,9 @@
-from .views import MyModelSerializer
+from .views import MyModelItemViewSet
 
 
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
-router.register('', MyModelSerializer, basename='my-model')
+router.register('', MyModelItemViewSet, basename='my-model')
 
 urlpatterns = router.urls
