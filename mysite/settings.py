@@ -61,38 +61,12 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 CORS_ALLOWED_ORIGINS = [
-    "*",
+    # Ваші домени або '*' для всіх
+    "http://localhost:3000",
+    "https://django-server-production-a8f6.up.railway.app",
+
+    # ...
 ]
-CORS_ALLOW_METHODS = [
-    'DELETE',
-    'GET',
-    'OPTIONS',
-    'PATCH',
-    'POST',
-    'PUT',
-]
-
-CORS_ALLOW_HEADERS = [
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
-]
-
-CORS_EXPOSE_HEADERS = []
-
-CORS_ALLOW_CREDENTIALS = True
-
-# Максимальний час, на який може тривати проміжок між простими запитаннями OPTIONS та фактичними запитаннями.
-CORS_PREFLIGHT_MAX_AGE = 86400
-
-# Налаштування кешу для корисних даних CORS (може бути довжиною в секундах чи строкою, що описує період часу).
-CORS_MAX_AGE = None
 ROOT_URLCONF = 'mysite.urls'
 
 TEMPLATES = [
