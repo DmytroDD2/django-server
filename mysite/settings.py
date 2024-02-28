@@ -92,10 +92,19 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 #         'PORT': os.environ["PGPORT"],
 #     }
 # }
-DATABASE_URL = "postgresql://postgres:beac6G-E1B*dDdD4eacf-6cecABEg3Ga@viaduct.proxy.rlwy.net:44263/railway"
+# DATABASE_URL = "postgresql://postgres:beac6G-E1B*dDdD4eacf-6cecABEg3Ga@viaduct.proxy.rlwy.net:44263/railway"
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
-
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "railway",
+        "USER": "postgres",
+        "PASSWORD": "C4dFgd35bEf-5FFdDAbFF2AFGgc5F6F3",
+        "HOST": "monorail.proxy.rlwy.net",
+        "PORT": "27624",
+    }
+}
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
