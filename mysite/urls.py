@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.shortcuts import redirect
 from django.urls import path, include
+from django.views.generic import RedirectView
 from drf_spectacular.views import SpectacularSwaggerView
 
 from rest_framework import permissions
@@ -41,10 +42,12 @@ schema_view = get_schema_view(
 
 
 urlpatterns = [
+    path('api/schema/swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path("admin/", admin.site.urls),
     path("my_model", include("my_model.urls")),
-    path('api/schema/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path("", lambda request: redirect('api/schema')),
+    path("", RedirectView.as_view(url='/api/schema/swagger/', permanent=False)),
+
+    # path("", lambda request: redirect('api/schema')),
 
 ]
 urlpatterns += staticfiles_urlpatterns()
