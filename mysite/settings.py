@@ -45,12 +45,14 @@ INSTALLED_APPS = [
     'my_model',
     # 'drf-spectacular',
     'drf_yasg',
+    'corsheaders',
 
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -58,7 +60,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
-
+CORS_ALLOWED_ORIGINS = [
+    # Ваші домени або '*' для всіх
+    "http://localhost:3000",
+    "https://yourfrontenddomain.com",
+    # ...
+]
 ROOT_URLCONF = 'mysite.urls'
 
 TEMPLATES = [
