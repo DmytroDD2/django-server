@@ -54,7 +54,7 @@ urlpatterns = [
     path('schema/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     # Додано префікс `/api/v1/` до всіх URL-адрес API
     path('api/v1/', include(router.urls)),
-    path('', RedirectView.as_view(url='schema/')),
+    path('', RedirectView.as_view(url='api/v1/docs/')),
 
 ]
 urlpatterns += staticfiles_urlpatterns()
