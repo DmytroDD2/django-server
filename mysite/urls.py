@@ -45,8 +45,8 @@ urlpatterns = [
 
     path("admin/", admin.site.urls),
     path("my-model/", include("my_model.urls")),
-    path('api/schema/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('', RedirectView.as_view(url='api/schema/')),
+    path('api/v1/schema/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('', RedirectView.as_view(url='api/v1/schema/')),
 
 
 
