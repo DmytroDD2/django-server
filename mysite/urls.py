@@ -20,7 +20,7 @@ from drf_spectacular.views import SpectacularSwaggerView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("my-model/", include("my_model.urls")),
+    path("", include("my_model.urls")),
     # path('', SpectacularSwaggerView.as_view(url_name='schema'), name='docs'),
 ]
 urlpatterns += staticfiles_urlpatterns()
