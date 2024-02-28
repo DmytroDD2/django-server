@@ -23,7 +23,13 @@ from drf_spectacular.views import SpectacularSwaggerView
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from rest_framework.routers import DefaultRouter
 
+from my_model.views import MyModelItemViewSet
+
+# Define the router before using it in urlpatterns
+router = DefaultRouter(trailing_slash=False)
+router.register('my-model', MyModelItemViewSet)
 
 
 schema_view = get_schema_view(
@@ -45,12 +51,10 @@ urlpatterns = [
 
     path("admin/", admin.site.urls),
     path("my-model/", include("my_model.urls")),
-    path('api/v1/schema/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('', RedirectView.as_view(url='api/v1/schema/')),
-
-
-
-    # path("", lambda request: redirect('api/schema')),
+    path('schema/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    # Додано префікс `/api/v1/` до всіх URL-адрес API
+    path('api/v1/', include(router.urls)),
+    path('', RedirectView.as_view(url='schema/')),
 
 ]
 urlpatterns += staticfiles_urlpatterns()
