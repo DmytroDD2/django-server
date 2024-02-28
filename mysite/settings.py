@@ -63,7 +63,8 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     # Ваші домени або '*' для всіх
     "http://localhost:3000",
-    "https://yourfrontenddomain.com",
+    "https://django-server-production-a8f6.up.railway.app",
+
     # ...
 ]
 ROOT_URLCONF = 'mysite.urls'
