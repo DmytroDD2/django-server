@@ -61,9 +61,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 CORS_ALLOWED_ORIGINS = [
-    # Ваші домени або '*' для всіх
-    "http://localhost:3000",
-    "https://django-server-production-a8f6.up.railway.app",
+    "django-server-production-a8f6.up.railway.app",
 
     # ...
 ]
